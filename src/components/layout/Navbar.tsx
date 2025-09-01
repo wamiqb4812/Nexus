@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign } from 'lucide-react';
+import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign, Calendar, Video, FileText } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Avatar } from '../ui/Avatar';
 import { Button } from '../ui/Button';
@@ -34,6 +34,21 @@ export const Navbar: React.FC = () => {
       icon: user?.role === 'entrepreneur' ? <Building2 size={18} /> : <CircleDollarSign size={18} />,
       text: 'Dashboard',
       path: dashboardRoute,
+    },
+    {
+      icon: <Calendar size={18} />,
+      text: 'Calendar',
+      path: user ? '/calendar' : '/login',
+    },
+    {
+      icon: <Video size={18} />,
+      text: 'Video Call',
+      path: user ? '/video-call' : '/login',
+    },
+    {
+      icon: <FileText size={18} />,
+      text: 'Documents',
+      path: user ? '/document-chamber' : '/login',
     },
     {
       icon: <MessageCircle size={18} />,
