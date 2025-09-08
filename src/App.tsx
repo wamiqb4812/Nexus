@@ -25,9 +25,12 @@ import { NotificationsPage } from './pages/notifications/NotificationsPage';
 import { DocumentsPage } from './pages/documents/DocumentsPage';
 import { DocumentChamberPage } from './pages/documentchamber/DocumentChamberPage';
 import { SettingsPage } from './pages/settings/SettingsPage';
+import SecuritySettingsPage from "./pages/securitysettingspage/SecuritySettingsPage"
 import { HelpPage } from './pages/help/HelpPage';
 import { DealsPage } from './pages/deals/DealsPage';
 
+// Payment Pages
+import PaymentPage from "./pages/payment/payment"
 // Calendar Pages
 import { CalendarPage } from './pages/calendar/calendar';
 
@@ -56,6 +59,11 @@ function App() {
           <Route path="/profile" element={<DashboardLayout />}>
             <Route path="entrepreneur/:id" element={<EntrepreneurProfile />} />
             <Route path="investor/:id" element={<InvestorProfile />} />
+          </Route>
+          
+          {/* Payment Routes */}
+          <Route path="/payments" element={<DashboardLayout />}>
+            <Route index element={<PaymentPage />} />
           </Route>
           
           {/* Calendar Routes */}
@@ -95,8 +103,10 @@ function App() {
             <Route index element={<DocumentsPage />} />
           </Route>
           
+          {/* Settings Routes */}
           <Route path="/settings" element={<DashboardLayout />}>
             <Route index element={<SettingsPage />} />
+            <Route path="security" element={<SecuritySettingsPage />} />
           </Route>
           
           <Route path="/help" element={<DashboardLayout />}>
